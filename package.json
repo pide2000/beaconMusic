@@ -1,0 +1,19 @@
+{
+  "name": "physical-web",
+  "version": "0.0.1",
+  "description": "Physical Web - Make something awesome",
+  "main": "index.js",
+  "keywords": [
+    "physical",
+    "web",
+    "beacons",
+    "punktde",
+    "justDoIt"
+  ],
+  "author": "velo@punkt.de",
+  "license": "MIT",
+  "dependencies": {
+    "noble": "^1.0.2",
+    "open": "0.0.5"
+  }
+}
