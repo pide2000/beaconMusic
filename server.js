@@ -156,7 +156,8 @@ function updatePeripherialData(peripherial) {
 	//here we check if a beacons is going out of range during scan
 
 	if (discoveredData[peripherial.id].rssi < RSSI_THRESHOLD) {
-		console.log("Beacon " + peripherial.advertisement.localName + " exited because of a threshold missmatch");
+		console.log("Beacon " + peripherial.advertisement.localName + " exited because of a threshold missmatch rssi is: " + discoveredData[peripherial.id].rssi);
+
 		delete discoveredData[peripherial.id];
 	} else {
 		extractPeripherialData(peripherial);
