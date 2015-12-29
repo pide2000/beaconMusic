@@ -1,19 +1,27 @@
 {
-  "name": "physical-web",
+  "name": "Beacon-Tracking",
   "version": "0.0.1",
-  "description": "Physical Web - Make something awesome",
+  "description": "Base Tracking System for Beacons",
   "main": "index.js",
   "keywords": [
     "physical",
     "web",
     "beacons",
     "punktde",
-    "justDoIt"
+    "justDoIt",
+    "BLE",
+    "tracking"
   ],
-  "author": "velo@punkt.de",
+  "author": "bolch@punkt.de, krist@punkt.de",
   "license": "MIT",
   "dependencies": {
+    "async": "~0.2.9",
+    "chart.js": "^1.0.2",
+    "express": "4.x",
+    "mongodb": "~2.0.0",
     "noble": "^1.0.2",
-    "open": "0.0.5"
+    "node-osc": "1.1.0",
+    "open": "0.0.5",
+    "socket.io": "1.3.7"
   }
 }

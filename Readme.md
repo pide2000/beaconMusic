@@ -19,7 +19,7 @@ in the main directory.
 Start the App with:
 
 ```
-$: node index.js
+$: node server.js
 ```
 The App will now provide teh scanned data in the console through console.log
 For now, the App provides teh ouptu of the overall data and the Eddystone Url as long at this is provided.
