@@ -6,7 +6,8 @@ var app = angular.module('StarterApp', ['ngMaterial']);
  */
 
 app.factory('socket', function ($rootScope) {
-	var socket = io.connect('beaconpi.intern.punkt.de:3000/');
+	//var socket = io.connect('beaconpi.intern.punkt.de:3000/');
+	var socket = io.connect('localhost:3000/');
 	return {
 		on: function (eventName, callback) {
 			socket.on(eventName, function () {
