@@ -43,8 +43,10 @@ io.on('connection', function (socket) {
 // express.js config
 app.use(express.static(__dirname + '/public'));
 
+
+
 app.get('/', function (req, res) {
-	res.sendFile('index.html');
+	res.sendFile(__dirname + '/public/index.html');
 });
 
 //return a list of all discovered beacons
