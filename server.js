@@ -7,6 +7,7 @@ var urldecode = require('./libs/urldecode.js');
 var open = require('open');
 var express = require('express');
 var osc = require('node-osc');
+var path = require('path');
 
 var discoveredData = new Object();
 var app = express();
