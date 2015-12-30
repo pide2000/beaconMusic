@@ -41,7 +41,7 @@ io.on('connection', function (socket) {
 
 
 // express.js config
-app.use("/", express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
 	res.sendFile('index.html');
