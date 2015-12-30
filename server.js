@@ -40,8 +40,13 @@ io.on('connection', function (socket) {
 });
 
 
+// express.js config
+app.use(express.static(__dirname + '/public'));
+
+
+
 app.get('/', function (req, res) {
-	res.sendFile(__dirname + '/Public/index.html');
+	res.sendFile(__dirname + 'index.html');
 });
 
 //return a list of all discovered beacons
@@ -57,8 +62,6 @@ app.get('/beaconInformation', function (req, res) {
 	res.send(discoveredData[req.query.id]);
 
 });
-
-app.use(express.static('Public'));
 
 //disable noble when ble is disabled
 noble.on('stateChange', function (state) {
