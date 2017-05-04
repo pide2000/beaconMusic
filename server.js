@@ -18,7 +18,7 @@ var isCheckBeaconDataRunning = false;
 var CHECK_BKN_DATA_INTERVAL = 200; // milliseconds
 var EXIT_GRACE_PERIOD = 4000; // milliseconds
 var RSSI_THRESHOLD = -90;
-var MAKEMUSIC = false;
+var MAKEMUSIC = true;
 
 if(MAKEMUSIC){
 	var client = new osc.Client('localhost', 4557);
@@ -147,12 +147,15 @@ function updatePeripherialData(peripherial) {
 
 	discoveredData[peripherialID].rssi = JSON.stringify(peripherial.rssi);
 
-	var sound = (discoveredData[peripherialID].rssi*-1)+10;
+	var sound = (discoveredData[peripherialID].rssi*-1);
+	console.log(sound);
+
+	var mappedSound = soundMapper(sound);
+	console.log("m" + mappedSound);
 
 	if(MAKEMUSIC){
-		client.send('/run-code', 'SONIC_PI_CLI', 'play ' + sound);
+		client.send('/run-code', 'SONIC_PI_CLI', 'play ' + mappedSound);
 	}
-
 
 
 	//here we check if a beacons is going out of range during scan
@@ -166,6 +169,18 @@ function updatePeripherialData(peripherial) {
 	}
 
 	io.sockets.emit('beacon', {beaconList:discoveredData});
+
+}
+
+function soundMapper(sound) {
+	var MAX_RANGE = 72;
+	var MIN_RANGE = 38;
+	var MAX_OUTPUT = 100;
+	var MIN_OUTPUT = 10;
+
+	mappedSound = (sound-MIN_RANGE)/(MAX_RANGE-MIN_RANGE) * (MAX_OUTPUT-MIN_OUTPUT) + MIN_OUTPUT;
+
+	return Math.round(mappedSound);
 
 }
 
