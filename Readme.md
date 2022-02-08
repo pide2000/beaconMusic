@@ -1,4 +1,4 @@
-#The Physical Web
+# The Physical Web
 
 "The Physical Web" Project should be understood as the base for the development with Beacons. The first Version provides a nodeJs App to scan for Beacons. 
 
